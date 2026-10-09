@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Begin Your Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Silkscreen:wght@400;700&family=Tektur:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1a3a;--navy2:#0f2556;--blue:#2f7bff;--orange:#ff8a1f;--ink:#e8efff;--mute:#9db3dd;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,var(--navy2),var(--navy) 70%) var(--navy);color:var(--ink);font-family:Outfit,system-ui,sans-serif;display:grid;place-items:center;padding:16px}
+.book{position:relative;width:min(760px,100%);min-height:min(560px,86vh);border:1px solid #2a4a8f;background:rgba(10,26,58,.85);padding:clamp(24px,5vw,56px);display:flex;flex-direction:column;justify-content:center}
+.book::before,.book::after,.c1,.c2{content:"";position:absolute;width:26px;height:26px;border:3px solid var(--orange)}
+.book::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+.book::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.c1{top:-2px;right:-2px;border-left:0;border-bottom:0;border-color:var(--blue)}
+.c2{bottom:-2px;left:-2px;border-right:0;border-top:0;border-color:var(--blue)}
+.tag{font-family:Silkscreen,monospace;font-size:12px;letter-spacing:.2em;color:var(--orange);margin:0 0 14px}
+h1,h2{font-family:Tektur,sans-serif;margin:0 0 16px;line-height:1.1;text-transform:uppercase}
+h1{font-size:clamp(34px,8vw,64px)}
+h2{font-size:clamp(26px,5vw,40px)}
+p{line-height:1.6;color:var(--mute)}
+.page{display:none;animation:in .45s ease}
+.page.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+button,.btn{font-family:Silkscreen,monospace;font-size:14px;letter-spacing:.12em;cursor:pointer;text-decoration:none;display:inline-block;border:2px solid var(--orange);background:transparent;color:var(--orange);padding:14px 22px;transition:.2s}
+button:hover,.btn:hover,button:focus-visible{background:var(--orange);color:var(--navy);outline:0}
+.hint{font-family:Silkscreen,monospace;font-size:11px;color:var(--mute);margin-top:18px;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.card{text-align:left;border:1px solid #2a4a8f;border-left:4px solid var(--blue);background:rgba(47,123,255,.08);padding:22px;color:var(--ink)}
+.card:hover{background:rgba(255,138,31,.12);border-color:var(--orange);color:var(--ink)}
+.card b{display:block;font-family:Tektur,sans-serif;font-size:20px;margin:6px 0;color:var(--ink);letter-spacing:.02em}
+.card span{font-family:Outfit,sans-serif;font-size:14px;letter-spacing:0;color:var(--mute)}
+@media(max-width:520px){.choices{gap:10px}.card{padding:14px}.card b{font-size:16px}.card span{font-size:12px}}
+table{width:100%;border-collapse:collapse;margin:20px 0}
+td{border:1px solid #2a4a8f;padding:14px 16px;vertical-align:top}
+td:first-child{width:34%;font-family:Silkscreen,monospace;font-size:12px;color:var(--orange);letter-spacing:.1em}
+td a{color:var(--blue);word-break:break-all;font-weight:600}
+.contact{border-top:1px dashed #2a4a8f;margin-top:22px;padding-top:16px;font-size:15px}
+.contact a{color:var(--blue)}
+.back{margin-top:22px;border-color:var(--blue);color:var(--blue);font-size:12px;padding:10px 16px}
+.back:hover{background:var(--blue);color:var(--navy)}
+</style>
+</head>
+<body>
+<main class="book">
+<i class="c1"></i><i class="c2"></i>
+
+<section class="page on" id="cover">
+  <p class="tag">// MISSION DOSSIER</p>
+  <h1>Begin your<br>journey</h1>
+  <p>Your path into defence science and technology starts here.</p>
+  <button id="start">ENTER ▸</button>
+  <div class="hint">PRESS [ENTER] TO CONTINUE</div>
+</section>
+
+<section class="page" id="choose">
+  <p class="tag">// STEP 01 · CHOOSE YOUR PATH</p>
+  <h2>Which scholarship?</h2>
+  <div class="choices">
+    <button class="card" data-go="scholarship-a"><b>YDSP Scholarship</b><span>Year 2/IP2</span></button>
+    <button class="card" data-go="jc"><b>DSTA Junior College Scholarship</b><span>Year 4/IP4</span></button>
+  </div>
+  <button class="back" data-go="cover">◂ BACK</button>
+</section>
+
+<section class="page" id="scholarship-a">
+  <p class="tag">// YDSP SCHOLARSHIP</p>
+  <h2>Sign up now</h2>
+  <table>
+    <tr><td>SIGN-UP LINK</td><td><a id="link" href="https://go.gov.sg/ydspscholarship2027" target="_blank" rel="noopener">https://go.gov.sg/ydspscholarship2027</a></td></tr>
+    <tr><td>DEADLINE</td><td id="deadline">30 November 2026 (Monday)</td></tr>
+  </table>
+  <p class="contact">Please feel free to contact us if you would like more information or have any queries: YDSP Scholarship - Celestine Foo (<a href="mailto:CFO1@dsta.gov.sg">CFO1@dsta.gov.sg</a>).</p>
+  <button class="back" data-go="choose">◂ BACK TO CHOICES</button>
+</section>
+
+<section class="page" id="jc">
+  <p class="tag">// DSTA JUNIOR COLLEGE SCHOLARSHIP</p>
+  <h2>Details coming soon</h2>
+  <p>Sign-up information for the DSTA Junior College Scholarship will be added here.</p>
+  <button class="back" data-go="choose">◂ BACK TO CHOICES</button>
+</section>
+</main>
+
+<script>
+var cur="cover";
+function go(id){
+  document.getElementById(cur).classList.remove("on");
+  document.getElementById(id).classList.add("on");
+  cur=id;
+}
+document.getElementById("start").onclick=function(){go("choose")};
+Array.prototype.forEach.call(document.querySelectorAll("[data-go]"),function(b){
+  b.onclick=function(){go(b.getAttribute("data-go"))};
+});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Enter"&&cur==="cover"){e.preventDefault();go("choose")}
+});
+</script>
+</body>
+</html>
